@@ -5,14 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-versions: [14.x]
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
-          name: Use NodeJS ${{ matrix.node-version }}
-          with:
-            node-version: ${{ matrix.node-version }}
-        - run: yarn
-        - run: yarn test
-          env:
-            CI: true
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        name: Use NodeJS ${{ matrix.node-version }}
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn
+      - run: yarn test
+        env:
+          CI: true
